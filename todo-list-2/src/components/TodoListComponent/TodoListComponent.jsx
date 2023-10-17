@@ -1,8 +1,8 @@
 import { createContext, useState, useEffect } from "react";
-import TodoList from "./TodoList";
-import TodoForm from "./TodoForm";
 import { v4 as uuidv4 } from "uuid";
 import TodosStates from "./TodosStates";
+import TodoList from "./TodoList";
+import TodoForm from "./TodoForm";
 
 export const TodoContext = createContext();
 
@@ -21,7 +21,7 @@ function TodoListComponent() {
 	function toggleTodo(id) {
 		const newTodos = [...todos];
 		const todo = newTodos.find((todo) => todo.id === id);
-		todo.done = !toggleTodo.done;
+		todo.done = !todo.done;
 		setTodos(newTodos);
 	}
 
@@ -44,7 +44,8 @@ function TodoListComponent() {
 			<div>TodoList</div>
 			<TodosStates todos={todos} />
 			<TodoContext.Provider value={[toggleTodo]}>
-				<TodoList todos={todos} toggleTodo={toggleTodo} />
+				{/* toggleTodo va être utilisée par le composant Todo */}
+				<TodoList todos={todos} />
 			</TodoContext.Provider>
 			<TodoContext.Provider
 				value={[handleClearDone, handleAddTodo, handleCheckAll]}

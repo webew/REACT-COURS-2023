@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { TodoContext } from "./TodoListComponent";
 
 const Todo = ({ todo }) => {
+	// passe la fonction toggleTodo depuis TodoListComponent
 	const [toggleTodo] = useContext(TodoContext);
 
 	return (
@@ -10,7 +11,7 @@ const Todo = ({ todo }) => {
 				<input
 					type="checkbox"
 					checked={todo.done}
-					onChange={() => toggleTodo(todo.id)}
+					onChange={() => toggleTodo(todo.id)} // appelle la fonction toggleTodo de TodoListComponent
 				/>
 				{todo.name}
 			</label>

@@ -1,9 +1,9 @@
 import React from "react";
 import Todo from "./Todo";
 
-const TodoList = ({ todos, toggleTodo }) => {
+const TodoList = ({ todos }) => {
 	return todos.map((currentTodo) => (
-		<Todo key={currentTodo.id} todo={currentTodo} toggleTodo={toggleTodo} />
+		<Todo key={currentTodo.id} todo={currentTodo} />
 	));
 };
 
